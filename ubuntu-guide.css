@@ -150,14 +150,15 @@ section {
 }
 
 .brand {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-        "logo eyebrow"
-        "logo title";
-    column-gap: 0.85rem;
-    row-gap: 0.2rem;
-    }
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.brand-eyebrow,
+.brand-title {
+    display: none;
+}
 
 .site-logo {
     width: 48px;
@@ -281,7 +282,7 @@ button.ghost:hover {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
     gap: 1.25rem;
-    margin: 1.4rem 0 1.6rem;
+    margin: 1.2rem 0 1.4rem;
     padding: 1.25rem 1.35rem;
     border-radius: var(--radius-lg);
     background: var(--hero-bg);
@@ -764,10 +765,11 @@ code {
     margin-top: 2rem;
     text-align: center;
     color: var(--muted);
-    padding: 1rem 0.75rem;
+    padding: 0.85rem 0.75rem;
     font-size: 0.95rem;
-    background: rgba(0, 0, 0, 0.02);
+    background: var(--surface);
     border-top: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
 }
 
 @media (max-width: 1080px) {
