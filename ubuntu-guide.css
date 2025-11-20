@@ -445,46 +445,9 @@ main {
 
 .cheatsheet-layout {
     display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
     align-items: start;
-}
-
-.cheatsheet-list {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 0.75rem;
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-height: 78vh;
-    overflow-y: auto;
-}
-
-.cheat-item {
-    width: 100%;
-    text-align: left;
-    background: var(--chip-bg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 0.8rem 0.95rem;
-    color: var(--text);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
-    box-shadow: var(--shadow-soft);
-}
-
-.cheat-item:hover {
-    background: var(--nav-hover);
-    transform: translateY(-1px);
-}
-
-.cheat-item.is-active {
-    background: linear-gradient(120deg, var(--accent-soft-1), var(--accent-soft-2));
-    border-color: var(--accent);
 }
 
 .cheatsheet-detail {
@@ -509,6 +472,41 @@ main {
 .detail-actions {
     display: flex;
     justify-content: flex-start;
+}
+
+.cheatsheet-select-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 0.85rem 0.95rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.cheatsheet-select-wrap label {
+    font-weight: 700;
+    color: var(--text);
+}
+
+.cheat-select {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0.65rem 0.85rem;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: border 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+}
+
+.cheat-select:hover,
+.cheat-select:focus {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-soft);
 }
 
 .command-list {
@@ -802,8 +800,8 @@ code {
         grid-template-columns: 1fr;
     }
 
-    .cheatsheet-list {
-        max-height: none;
+    .cheatsheet-select-wrap {
+        width: 100%;
     }
 }
 
