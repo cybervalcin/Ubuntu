@@ -25,10 +25,8 @@
             <div class="site-logo">
                 <img src="ubuntu-logo.jpg" alt="Logo Ubuntu" class="site-logo-img">
             </div>
-            <div class="brand-text">
-                <p class="eyebrow">Ubuntu Guide &amp; Cheat Sheet</p>
-                <h1>Guide et aide-m&#233;moire Ubuntu</h1>
-            </div>
+            <p class="eyebrow brand-eyebrow">Ubuntu Guide &amp; Cheat Sheet</p>
+            <h1 class="brand-title">Guide et aide-m&#233;moire Ubuntu</h1>
         </div>
         <nav class="main-nav" aria-label="Navigation principale">
             <a href="#intro">Intro</a>
@@ -494,6 +492,9 @@
         burger?.addEventListener('click', openMobileMenu);
         burgerClose?.addEventListener('click', closeMobileMenu);
         mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+        mobileMenu?.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) closeMobileMenu();
+        });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeMobileMenu();
         });
