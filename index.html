@@ -6,13 +6,13 @@
     <title>Guide et Cheat Sheet Ubuntu</title>
     <link rel="stylesheet" href="ubuntu-guide.css">
 </head>
-<body class="theme-light">
+<body class="theme-ubuntu">
     <header class="topbar">
         <div class="brand">
             <div class="brand-mark">U</div>
             <div>
                 <p class="eyebrow">Ubuntu Guide &amp; Cheat Sheet</p>
-                <h1>Admin Ubuntu rapide et lisible</h1>
+                <h1>Guide et aide-m&#233;moire Ubuntu</h1>
             </div>
         </div>
         <nav class="main-nav" aria-label="Navigation principale">
@@ -28,7 +28,7 @@
             <div class="theme-switcher" aria-label="Choix du th&#232;me">
                 <label for="theme-picker">Th&#232;me</label>
                 <select id="theme-picker">
-                    <option value="light">Clair</option>
+                    <option value="ubuntu">Ubuntu</option>
                     <option value="dark">Sombre</option>
                     <option value="accent">Accent</option>
                 </select>
@@ -42,7 +42,7 @@
         <section class="hero" id="intro">
             <div class="hero-text">
                 <p class="eyebrow">Pr&#234;t en quelques commandes</p>
-                <h2>Ma&#238;trisez Ubuntu plus vite : bonnes pratiques, m&#233;mos et commandes essentielles.</h2>
+                <h2>Ma&#238;trisez Ubuntu avec des commandes claires, structur&#233;es et rapides.</h2>
                 <p>Une fiche compacte pour installer, d&#233;panner, s&#233;curiser et automatiser. Pens&#233;e pour rester lisible, imprimable et utilisable hors ligne.</p>
                 <div class="hero-tags">
                     <span>apt &amp; paquets</span>
@@ -83,47 +83,184 @@
                     <h3>Commandes essentielles</h3>
                     <p>Navigation, paquets, fichiers : les incontournables pour intervenir vite sur un poste ou un serveur.</p>
                 </div>
-                <div class="card-grid">
+                <div class="command-grid">
                     <article class="card">
                         <div class="card-head">
                             <h4>Navigation &amp; rep&#233;rage</h4>
-                            <button class="copy-btn" title="Copier le bloc">Copier</button>
                         </div>
-                        <pre><code class="code-block">pwd                      # dossier courant
-ls -la                   # lister avec d&#233;tails
-cd /etc                  # naviguer
-mkdir projets && cd projets
-touch notes.md           # cr&#233;er un fichier
-df -h                    # espace disque
-du -sh .                 # taille du dossier courant</code></pre>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Afficher le dossier courant pour savoir o&#249; vous vous situez.</div>
+                                <div class="command-snippet">
+                                    <pre><code>pwd</code></pre>
+                                    <button class="copy-line" data-code="pwd">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Lister le contenu avec d&#233;tails et fichiers cach&#233;s.</div>
+                                <div class="command-snippet">
+                                    <pre><code>ls -la</code></pre>
+                                    <button class="copy-line" data-code="ls -la">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Acc&#233;der rapidement au dossier syst&#232;me /etc.</div>
+                                <div class="command-snippet">
+                                    <pre><code>cd /etc</code></pre>
+                                    <button class="copy-line" data-code="cd /etc">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Cr&#233;er un dossier et s'y placer en une commande.</div>
+                                <div class="command-snippet">
+                                    <pre><code>mkdir projets && cd projets</code></pre>
+                                    <button class="copy-line" data-code="mkdir projets && cd projets">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Cr&#233;er un fichier vide pour prendre des notes.</div>
+                                <div class="command-snippet">
+                                    <pre><code>touch notes.md</code></pre>
+                                    <button class="copy-line" data-code="touch notes.md">Copier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>Espace disque &amp; tailles</h4>
+                        </div>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Voir l'espace disque utilis&#233;/disponible avec des tailles lisibles.</div>
+                                <div class="command-snippet">
+                                    <pre><code>df -h</code></pre>
+                                    <button class="copy-line" data-code="df -h">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Afficher la taille du dossier courant.</div>
+                                <div class="command-snippet">
+                                    <pre><code>du -sh .</code></pre>
+                                    <button class="copy-line" data-code="du -sh .">Copier</button>
+                                </div>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="card">
                         <div class="card-head">
                             <h4>Paquets (apt)</h4>
-                            <button class="copy-btn" title="Copier le bloc">Copier</button>
                         </div>
-                        <pre><code class="code-block">sudo apt update
-sudo apt upgrade
-sudo apt install htop curl git
-sudo apt remove nom_paquet
-apt search docker
-apt show nginx
-apt list --upgradable</code></pre>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Mettre &#224; jour la liste des paquets.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo apt update</code></pre>
+                                    <button class="copy-line" data-code="sudo apt update">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Installer les mises &#224; jour disponibles.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo apt upgrade</code></pre>
+                                    <button class="copy-line" data-code="sudo apt upgrade">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Installer des outils courants (htop, curl, git).</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo apt install htop curl git</code></pre>
+                                    <button class="copy-line" data-code="sudo apt install htop curl git">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Supprimer un paquet devenu inutile.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo apt remove nom_paquet</code></pre>
+                                    <button class="copy-line" data-code="sudo apt remove nom_paquet">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Rechercher un paquet par mot-cl&#233;.</div>
+                                <div class="command-snippet">
+                                    <pre><code>apt search docker</code></pre>
+                                    <button class="copy-line" data-code="apt search docker">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Consulter les d&#233;tails d'un paquet.</div>
+                                <div class="command-snippet">
+                                    <pre><code>apt show nginx</code></pre>
+                                    <button class="copy-line" data-code="apt show nginx">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Lister les paquets pouvant &#234;tre mis &#224; jour.</div>
+                                <div class="command-snippet">
+                                    <pre><code>apt list --upgradable</code></pre>
+                                    <button class="copy-line" data-code="apt list --upgradable">Copier</button>
+                                </div>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="card">
                         <div class="card-head">
                             <h4>Fichiers &amp; archives</h4>
-                            <button class="copy-btn" title="Copier le bloc">Copier</button>
                         </div>
-                        <pre><code class="code-block">cp -r source/ cible/         # copier
-mv logs.tar.gz sauvegarde/   # d&#233;placer ou renommer
-rm -rf dossier               # supprimer
-tar -czvf backup.tar.gz dossier/
-tar -xzvf backup.tar.gz
-find . -name "*.log" -delete
-grep -R "motif" ./dossier</code></pre>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Copier un dossier en conservant son contenu.</div>
+                                <div class="command-snippet">
+                                    <pre><code>cp -r source/ cible/         # copier</code></pre>
+                                    <button class="copy-line" data-code="cp -r source/ cible/         # copier">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">D&#233;placer ou renommer une archive.</div>
+                                <div class="command-snippet">
+                                    <pre><code>mv logs.tar.gz sauvegarde/   # d&#233;placer ou renommer</code></pre>
+                                    <button class="copy-line" data-code="mv logs.tar.gz sauvegarde/   # d&#233;placer ou renommer">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Supprimer un dossier avec son contenu.</div>
+                                <div class="command-snippet">
+                                    <pre><code>rm -rf dossier               # supprimer</code></pre>
+                                    <button class="copy-line" data-code="rm -rf dossier               # supprimer">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Cr&#233;er une archive compress&#233;e du dossier.</div>
+                                <div class="command-snippet">
+                                    <pre><code>tar -czvf backup.tar.gz dossier/</code></pre>
+                                    <button class="copy-line" data-code="tar -czvf backup.tar.gz dossier/">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Extraire une archive compress&#233;e.</div>
+                                <div class="command-snippet">
+                                    <pre><code>tar -xzvf backup.tar.gz</code></pre>
+                                    <button class="copy-line" data-code="tar -xzvf backup.tar.gz">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Supprimer tous les fichiers .log dans l'arborescence.</div>
+                                <div class="command-snippet">
+                                    <pre><code>find . -name "*.log" -delete</code></pre>
+                                    <button class="copy-line" data-code='find . -name "*.log" -delete'>Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Rechercher un motif dans tous les fichiers d'un dossier.</div>
+                                <div class="command-snippet">
+                                    <pre><code>grep -R "motif" ./dossier</code></pre>
+                                    <button class="copy-line" data-code='grep -R "motif" ./dossier'>Copier</button>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </section>
@@ -134,44 +271,155 @@ grep -R "motif" ./dossier</code></pre>
                     <h3>Commandes avanc&#233;es</h3>
                     <p>Surveillance, services, r&#233;seau et s&#233;curit&#233; pour garder un syst&#232;me fiable.</p>
                 </div>
-                <div class="card-grid">
+                <div class="command-grid">
                     <article class="card">
                         <div class="card-head">
                             <h4>Services systemd</h4>
-                            <button class="copy-btn" title="Copier le bloc">Copier</button>
                         </div>
-                        <pre><code class="code-block">sudo systemctl status nginx
-sudo systemctl restart nginx
-sudo systemctl enable nginx --now
-sudo systemctl disable apache2
-journalctl -xeu nginx        # logs service
-systemctl list-units --type=service</code></pre>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Consulter l'&#233;tat du service nginx.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo systemctl status nginx</code></pre>
+                                    <button class="copy-line" data-code="sudo systemctl status nginx">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Red&#233;marrer le service nginx.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo systemctl restart nginx</code></pre>
+                                    <button class="copy-line" data-code="sudo systemctl restart nginx">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Activer et lancer nginx au d&#233;marrage.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo systemctl enable nginx --now</code></pre>
+                                    <button class="copy-line" data-code="sudo systemctl enable nginx --now">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">D&#233;sactiver apache2 au d&#233;marrage.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo systemctl disable apache2</code></pre>
+                                    <button class="copy-line" data-code="sudo systemctl disable apache2">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Afficher les derniers logs du service nginx.</div>
+                                <div class="command-snippet">
+                                    <pre><code>journalctl -xeu nginx        # logs service</code></pre>
+                                    <button class="copy-line" data-code="journalctl -xeu nginx        # logs service">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Lister les unit&#233;s de service charg&#233;es.</div>
+                                <div class="command-snippet">
+                                    <pre><code>systemctl list-units --type=service</code></pre>
+                                    <button class="copy-line" data-code="systemctl list-units --type=service">Copier</button>
+                                </div>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="card">
                         <div class="card-head">
                             <h4>R&#233;seau</h4>
-                            <button class="copy-btn" title="Copier le bloc">Copier</button>
                         </div>
-                        <pre><code class="code-block">ip a                         # interfaces
-ip route                     # routes
-ss -tulpn                    # ports ouverts
-ping -c 4 ubuntu.com
-curl -I https://example.com
-dig +short monsite.fr</code></pre>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Afficher les interfaces r&#233;seau.</div>
+                                <div class="command-snippet">
+                                    <pre><code>ip a                         # interfaces</code></pre>
+                                    <button class="copy-line" data-code="ip a                         # interfaces">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Consulter la table de routage.</div>
+                                <div class="command-snippet">
+                                    <pre><code>ip route                     # routes</code></pre>
+                                    <button class="copy-line" data-code="ip route                     # routes">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Lister les ports ouverts et processus associ&#233;s.</div>
+                                <div class="command-snippet">
+                                    <pre><code>ss -tulpn                    # ports ouverts</code></pre>
+                                    <button class="copy-line" data-code="ss -tulpn                    # ports ouverts">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Tester la connectivit&#233; ICMP vers ubuntu.com.</div>
+                                <div class="command-snippet">
+                                    <pre><code>ping -c 4 ubuntu.com</code></pre>
+                                    <button class="copy-line" data-code="ping -c 4 ubuntu.com">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">V&#233;rifier les en-t&#234;tes HTTP d'un site.</div>
+                                <div class="command-snippet">
+                                    <pre><code>curl -I https://example.com</code></pre>
+                                    <button class="copy-line" data-code="curl -I https://example.com">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Tester la r&#233;solution DNS d'un domaine.</div>
+                                <div class="command-snippet">
+                                    <pre><code>dig +short monsite.fr</code></pre>
+                                    <button class="copy-line" data-code="dig +short monsite.fr">Copier</button>
+                                </div>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="card">
                         <div class="card-head">
                             <h4>Utilisateurs &amp; droits</h4>
-                            <button class="copy-btn" title="Copier le bloc">Copier</button>
                         </div>
-                        <pre><code class="code-block">sudo adduser devops
-sudo usermod -aG sudo devops
-sudo chown -R devops:devops /var/www
-chmod -R 750 /var/www
-sudo visudo                    # &#233;diter sudoers
-getent passwd devops</code></pre>
+                        <div class="command-list">
+                            <div class="command-row">
+                                <div class="command-desc">Cr&#233;er un nouvel utilisateur.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo adduser devops</code></pre>
+                                    <button class="copy-line" data-code="sudo adduser devops">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Ajouter l'utilisateur au groupe sudo.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo usermod -aG sudo devops</code></pre>
+                                    <button class="copy-line" data-code="sudo usermod -aG sudo devops">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Changer le propri&#233;taire d'un dossier.</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo chown -R devops:devops /var/www</code></pre>
+                                    <button class="copy-line" data-code="sudo chown -R devops:devops /var/www">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">Ajuster les droits d'acc&#232;s d'un r&#233;pertoire.</div>
+                                <div class="command-snippet">
+                                    <pre><code>chmod -R 750 /var/www</code></pre>
+                                    <button class="copy-line" data-code="chmod -R 750 /var/www">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">&#201;diter la configuration sudoers (s&#233;curit&#233;).</div>
+                                <div class="command-snippet">
+                                    <pre><code>sudo visudo                    # &#233;diter sudoers</code></pre>
+                                    <button class="copy-line" data-code="sudo visudo                    # \u00e9diter sudoers">Copier</button>
+                                </div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-desc">V&#233;rifier l'existence d'un utilisateur.</div>
+                                <div class="command-snippet">
+                                    <pre><code>getent passwd devops</code></pre>
+                                    <button class="copy-line" data-code="getent passwd devops">Copier</button>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </section>
@@ -297,6 +545,25 @@ getent passwd devops</code></pre>
             });
         });
 
+        // Boutons de copie pour chaque ligne
+        document.querySelectorAll('.copy-line').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const text = btn.getAttribute('data-code') || '';
+                try {
+                    await navigator.clipboard.writeText(text);
+                    const original = btn.textContent;
+                    btn.textContent = 'Copié !';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = original;
+                        btn.classList.remove('copied');
+                    }, 1200);
+                } catch (e) {
+                    console.error('Copy failed', e);
+                }
+            });
+        });
+
         // Export PDF
         const pdfBtn = document.getElementById('export-pdf');
         pdfBtn?.addEventListener('click', () => window.print());
@@ -309,19 +576,19 @@ getent passwd devops</code></pre>
             tocToggle.setAttribute('aria-expanded', isOpen.toString());
         });
 
-        // Thèmes
+        // Themes
         const themePicker = document.getElementById('theme-picker');
         const body = document.body;
         const THEME_KEY = 'ubuntu-guide-theme';
 
         const applyTheme = (theme) => {
-            const themes = ['theme-light', 'theme-dark', 'theme-accent'];
+            const themes = ['theme-ubuntu', 'theme-dark', 'theme-accent'];
             themes.forEach(t => body.classList.remove(t));
             body.classList.add(`theme-${theme}`);
             localStorage.setItem(THEME_KEY, theme);
         };
 
-        const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+        const savedTheme = localStorage.getItem(THEME_KEY) || 'ubuntu';
         applyTheme(savedTheme);
         if (themePicker) {
             themePicker.value = savedTheme;
