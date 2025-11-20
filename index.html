@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide et Cheat Sheet Ubuntu</title>
+    <link rel="stylesheet" href="ubuntu-guide.css">
+</head>
+<body class="theme-light">
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">U</div>
+            <div>
+                <p class="eyebrow">Ubuntu Guide &amp; Cheat Sheet</p>
+                <h1>Admin Ubuntu rapide et lisible</h1>
+            </div>
+        </div>
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a href="#intro">Intro</a>
+            <a href="#basic">Basique</a>
+            <a href="#advanced">Avanc&#233;</a>
+            <a href="#advantages">Avantages</a>
+            <a href="#actions">&#192; faire</a>
+            <a href="#exercises">Exercices</a>
+            <a href="#resources">Ressources</a>
+        </nav>
+        <div class="top-actions">
+            <div class="theme-switcher" aria-label="Choix du th&#232;me">
+                <label for="theme-picker">Th&#232;me</label>
+                <select id="theme-picker">
+                    <option value="light">Clair</option>
+                    <option value="dark">Sombre</option>
+                    <option value="accent">Accent</option>
+                </select>
+            </div>
+            <button id="export-pdf" class="ghost">Exporter en PDF</button>
+            <button id="toc-toggle" class="ghost mobile-only" aria-expanded="false">Plan</button>
+        </div>
+    </header>
+
+    <div class="shell">
+        <section class="hero" id="intro">
+            <div class="hero-text">
+                <p class="eyebrow">Pr&#234;t en quelques commandes</p>
+                <h2>Ma&#238;trisez Ubuntu plus vite : bonnes pratiques, m&#233;mos et commandes essentielles.</h2>
+                <p>Une fiche compacte pour installer, d&#233;panner, s&#233;curiser et automatiser. Pens&#233;e pour rester lisible, imprimable et utilisable hors ligne.</p>
+                <div class="hero-tags">
+                    <span>apt &amp; paquets</span>
+                    <span>systemd</span>
+                    <span>shell</span>
+                    <span>r&#233;seau</span>
+                </div>
+            </div>
+            <div class="hero-card">
+                <p class="eyebrow">En un clin d'&#339;il</p>
+                <ul>
+                    <li><strong>Basique</strong> : navigation, apt, archives</li>
+                    <li><strong>Avanc&#233;</strong> : services, r&#233;seau, droits</li>
+                    <li><strong>Pratique</strong> : exercices, ressources</li>
+                </ul>
+                <div class="small-notice">Astuce : utilisez le plan &#224; gauche et le scroll doux pour aller directement &#224; la section voulue.</div>
+            </div>
+        </section>
+
+        <div class="page">
+            <aside class="sidebar">
+                <div class="toc-title">Plan rapide</div>
+                <nav class="toc" id="toc" aria-label="Table des mati&#232;res">
+                    <a href="#intro" class="active">Introduction</a>
+                    <a href="#basic">Cheat sheet basique</a>
+                    <a href="#advanced">Cheat sheet avanc&#233;e</a>
+                    <a href="#advantages">Avantages</a>
+                    <a href="#actions">&#192; faire</a>
+                    <a href="#exercises">Exercices</a>
+                    <a href="#resources">Ressources</a>
+                </nav>
+            </aside>
+
+            <main>
+            <section id="basic" class="section">
+                <div class="section-head">
+                    <p class="eyebrow">Cheat sheet</p>
+                    <h3>Commandes essentielles</h3>
+                    <p>Navigation, paquets, fichiers : les incontournables pour intervenir vite sur un poste ou un serveur.</p>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>Navigation &amp; rep&#233;rage</h4>
+                            <button class="copy-btn" title="Copier le bloc">Copier</button>
+                        </div>
+                        <pre><code class="code-block">pwd                      # dossier courant
+ls -la                   # lister avec d&#233;tails
+cd /etc                  # naviguer
+mkdir projets && cd projets
+touch notes.md           # cr&#233;er un fichier
+df -h                    # espace disque
+du -sh .                 # taille du dossier courant</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>Paquets (apt)</h4>
+                            <button class="copy-btn" title="Copier le bloc">Copier</button>
+                        </div>
+                        <pre><code class="code-block">sudo apt update
+sudo apt upgrade
+sudo apt install htop curl git
+sudo apt remove nom_paquet
+apt search docker
+apt show nginx
+apt list --upgradable</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>Fichiers &amp; archives</h4>
+                            <button class="copy-btn" title="Copier le bloc">Copier</button>
+                        </div>
+                        <pre><code class="code-block">cp -r source/ cible/         # copier
+mv logs.tar.gz sauvegarde/   # d&#233;placer ou renommer
+rm -rf dossier               # supprimer
+tar -czvf backup.tar.gz dossier/
+tar -xzvf backup.tar.gz
+find . -name "*.log" -delete
+grep -R "motif" ./dossier</code></pre>
+                    </article>
+                </div>
+            </section>
+
+            <section id="advanced" class="section">
+                <div class="section-head">
+                    <p class="eyebrow">Cheat sheet</p>
+                    <h3>Commandes avanc&#233;es</h3>
+                    <p>Surveillance, services, r&#233;seau et s&#233;curit&#233; pour garder un syst&#232;me fiable.</p>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>Services systemd</h4>
+                            <button class="copy-btn" title="Copier le bloc">Copier</button>
+                        </div>
+                        <pre><code class="code-block">sudo systemctl status nginx
+sudo systemctl restart nginx
+sudo systemctl enable nginx --now
+sudo systemctl disable apache2
+journalctl -xeu nginx        # logs service
+systemctl list-units --type=service</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>R&#233;seau</h4>
+                            <button class="copy-btn" title="Copier le bloc">Copier</button>
+                        </div>
+                        <pre><code class="code-block">ip a                         # interfaces
+ip route                     # routes
+ss -tulpn                    # ports ouverts
+ping -c 4 ubuntu.com
+curl -I https://example.com
+dig +short monsite.fr</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h4>Utilisateurs &amp; droits</h4>
+                            <button class="copy-btn" title="Copier le bloc">Copier</button>
+                        </div>
+                        <pre><code class="code-block">sudo adduser devops
+sudo usermod -aG sudo devops
+sudo chown -R devops:devops /var/www
+chmod -R 750 /var/www
+sudo visudo                    # &#233;diter sudoers
+getent passwd devops</code></pre>
+                    </article>
+                </div>
+            </section>
+
+            <section id="advantages" class="section">
+                <div class="section-head">
+                    <p class="eyebrow">Rep&#232;res</p>
+                    <h3>Avantages cl&#233;s d'Ubuntu</h3>
+                    <p>Pourquoi l'utiliser au quotidien pour l'admin, le dev ou l'apprentissage.</p>
+                </div>
+                <div class="pill-grid">
+                    <div class="pill">Large communaut&#233; et docs abondantes</div>
+                    <div class="pill">Paquets stables via APT + PPA</div>
+                    <div class="pill">S&#233;curit&#233; avec AppArmor et mises &#224; jour r&#233;guli&#232;res</div>
+                    <div class="pill">Images cloud/WSL faciles &#224; d&#233;ployer</div>
+                    <div class="pill">Support LTS 5 ans, id&#233;al en prod</div>
+                    <div class="pill">&#201;cosyst&#232;me dev complet (snap, apt, docker)</div>
+                </div>
+            </section>
+
+            <section id="actions" class="section">
+                <div class="section-head">
+                    <p class="eyebrow">&#192; faire</p>
+                    <h3>Checklist rapide</h3>
+                    <p>Les actions imm&#233;diatement utiles lors de la prise en main d'une machine.</p>
+                </div>
+                <div class="list-card">
+                    <ul>
+                        <li>Mettre &#224; jour le syst&#232;me, configurer le fuseau horaire et l'heure (NTP).</li>
+                        <li>Cr&#233;er un utilisateur non-root avec sudo et cl&#233;s SSH.</li>
+                        <li>Activer UFW avec des r&#232;gles entrantes minimales (SSH, HTTP/HTTPS).</li>
+                        <li>Installer les outils essentiels : build-essential, curl, git, unzip.</li>
+                        <li>S&#233;curiser SSH : d&#233;sactiver root login, utiliser des cl&#233;s, changer le port si n&#233;cessaire.</li>
+                        <li>Configurer les sauvegardes (rsync, duplicity, borg) et des alertes basiques.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="exercises" class="section">
+                <div class="section-head">
+                    <p class="eyebrow">Pratique</p>
+                    <h3>Exercices courts</h3>
+                    <p>Pour ancrer les commandes les plus utiles.</p>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <h4>Gestion syst&#232;me</h4>
+                        <p>Cr&#233;er un utilisateur limit&#233;, lui donner acc&#232;s sudo et v&#233;rifier les droits.</p>
+                        <p>Red&#233;marrer un service web, consulter ses logs sur 15 derni&#232;res minutes.</p>
+                    </article>
+                    <article class="card">
+                        <h4>R&#233;seau</h4>
+                        <p>Identifier les ports &#233;coutant en TCP, fermer un service inutile.</p>
+                        <p>Tester la r&#233;solution DNS et tracer la route vers un domaine public.</p>
+                    </article>
+                    <article class="card">
+                        <h4>Fichiers &amp; sauvegarde</h4>
+                        <p>Archiver un dossier applicatif, le restaurer ailleurs et comparer les tailles.</p>
+                        <p>Mettre en place une t&#226;che cron simple qui &#233;crit dans un journal d&#233;di&#233;.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="resources" class="section">
+                <div class="section-head">
+                    <p class="eyebrow">Ressources</p>
+                    <h3>Pour aller plus loin</h3>
+                    <p>R&#233;f&#233;rences officielles et outils pratiques pour continuer.</p>
+                </div>
+                <div class="list-card resources">
+                    <ul>
+                        <li><a href="https://ubuntu.com/server/docs" target="_blank" rel="noopener">Documentation serveur Ubuntu</a></li>
+                        <li><a href="https://help.ubuntu.com/" target="_blank" rel="noopener">Aide Ubuntu (desktop et server)</a></li>
+                        <li><a href="https://manpages.ubuntu.com/" target="_blank" rel="noopener">Manpages Ubuntu</a></li>
+                        <li><a href="https://wiki.ubuntu.com/Firewall" target="_blank" rel="noopener">Guide UFW / pare-feu</a></li>
+                        <li><a href="https://github.com/awesome-lists/awesome-linux" target="_blank" rel="noopener">Awesome Linux (outils &amp; astuces)</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        </div>
+        <footer class="footer">Pr&#233;par&#233; par Joey Valcin</footer>
+    </div>
+
+    <script>
+        // Scroll actif dans le plan
+        const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+        const sections = tocLinks
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const link = document.querySelector('.toc a[href="#' + id + '"]');
+                if (!link) return;
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(a => a.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0.25 });
+
+        sections.forEach(sec => observer.observe(sec));
+
+        // Boutons de copie
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const code = btn.closest('.card').querySelector('code');
+                const text = code ? code.innerText.trim() : '';
+                try {
+                    await navigator.clipboard.writeText(text);
+                    const original = btn.textContent;
+                    btn.textContent = 'Copi&#233; !';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = original;
+                        btn.classList.remove('copied');
+                    }, 1200);
+                } catch (e) {
+                    console.error('Copy failed', e);
+                }
+            });
+        });
+
+        // Export PDF
+        const pdfBtn = document.getElementById('export-pdf');
+        pdfBtn?.addEventListener('click', () => window.print());
+
+        // Toggle plan sur mobile
+        const tocToggle = document.getElementById('toc-toggle');
+        const toc = document.getElementById('toc');
+        tocToggle?.addEventListener('click', () => {
+            const isOpen = toc.classList.toggle('open');
+            tocToggle.setAttribute('aria-expanded', isOpen.toString());
+        });
+
+        // Thèmes
+        const themePicker = document.getElementById('theme-picker');
+        const body = document.body;
+        const THEME_KEY = 'ubuntu-guide-theme';
+
+        const applyTheme = (theme) => {
+            const themes = ['theme-light', 'theme-dark', 'theme-accent'];
+            themes.forEach(t => body.classList.remove(t));
+            body.classList.add(`theme-${theme}`);
+            localStorage.setItem(THEME_KEY, theme);
+        };
+
+        const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+        applyTheme(savedTheme);
+        if (themePicker) {
+            themePicker.value = savedTheme;
+            themePicker.addEventListener('change', (e) => {
+                applyTheme(e.target.value);
+            });
+        }
+    </script>
+</body>
+</html>
