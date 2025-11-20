@@ -789,10 +789,10 @@ code {
 
 @media (max-width: 900px) {
     .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        gap: 0.85rem;
         padding: 0.65rem 0.75rem;
     }
 
@@ -817,10 +817,19 @@ code {
     }
 
     .top-actions {
-        justify-content: flex-end;
+        width: 100%;
+        justify-content: space-between;
         align-items: center;
-        gap: 0.3rem;
-        flex-wrap: nowrap;
+        gap: 0.45rem;
+        flex-wrap: wrap;
+    }
+
+    .top-actions .theme-switcher {
+        flex: 1 1 220px;
+    }
+
+    .top-actions button {
+        flex-shrink: 0;
     }
 
     .burger {
@@ -1019,15 +1028,4 @@ code {
     color: var(--text);
     font-weight: 700;
     text-align: center;
-}
-
-.export-mobile {
-    border-radius: 999px;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    color: var(--text);
-    font-weight: 700;
-    box-shadow: var(--shadow-soft);
-    cursor: pointer;
 }

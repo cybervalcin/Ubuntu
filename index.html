@@ -52,7 +52,6 @@
                     <button class="theme-option" role="option" data-theme="accent" aria-selected="false">Accent</button>
                 </div>
             </div>
-            <button id="export-pdf" class="ghost">Exporter en PDF</button>
             <button id="toc-toggle" class="ghost mobile-only" aria-expanded="false">Plan</button>
             <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
         </div>
@@ -75,7 +74,6 @@
                 <a href="#exercises">Exercices</a>
                 <a href="#resources">Ressources</a>
             </nav>
-            <button class="export-mobile" id="export-pdf-mobile">Exporter en PDF</button>
         </div>
     </div>
 
@@ -393,12 +391,6 @@
 
         initCheatsheet('basic');
         initCheatsheet('advanced');
-
-        // Export PDF
-        const pdfBtn = document.getElementById('export-pdf');
-        pdfBtn?.addEventListener('click', () => window.print());
-        const pdfBtnMobile = document.getElementById('export-pdf-mobile');
-        pdfBtnMobile?.addEventListener('click', () => window.print());
 
         // Toggle plan sur mobile
         const tocToggle = document.getElementById('toc-toggle');
