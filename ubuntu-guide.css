@@ -443,6 +443,74 @@ main {
     gap: 1.05rem;
 }
 
+.cheatsheet-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.cheatsheet-list {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 0.75rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 78vh;
+    overflow-y: auto;
+}
+
+.cheat-item {
+    width: 100%;
+    text-align: left;
+    background: var(--chip-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.8rem 0.95rem;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.cheat-item:hover {
+    background: var(--nav-hover);
+    transform: translateY(-1px);
+}
+
+.cheat-item.is-active {
+    background: linear-gradient(120deg, var(--accent-soft-1), var(--accent-soft-2));
+    border-color: var(--accent);
+}
+
+.cheatsheet-detail {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detail-title {
+    margin: 0;
+}
+
+.detail-code {
+    margin: 0;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .command-list {
     display: flex;
     flex-direction: column;
@@ -493,6 +561,29 @@ main {
 }
 
 .copy-line.copied {
+    background: linear-gradient(120deg, var(--accent-soft-1), var(--accent-soft-2));
+    border-color: var(--accent);
+}
+
+.copy-detail {
+    border-radius: 12px;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid var(--line);
+    background: var(--chip-bg);
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--text);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border 0.12s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.copy-detail:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-soft);
+}
+
+.copy-detail.copied {
     background: linear-gradient(120deg, var(--accent-soft-1), var(--accent-soft-2));
     border-color: var(--accent);
 }
@@ -611,6 +702,10 @@ code {
         position: static;
         order: -1;
     }
+
+    .cheatsheet-layout {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 900px) {
@@ -701,6 +796,14 @@ code {
 
     .theme-switcher select {
         width: 100%;
+    }
+
+    .cheatsheet-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cheatsheet-list {
+        max-height: none;
     }
 }
 
