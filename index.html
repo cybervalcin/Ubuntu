@@ -22,8 +22,8 @@
 <body class="theme-ubuntu">
     <header class="topbar">
         <div class="brand">
-            <div class="brand-mark">
-                <img src="ubuntu-logo.jpg" alt="Logo Ubuntu">
+            <div class="site-logo">
+                <img src="ubuntu-logo.jpg" alt="Logo Ubuntu" class="site-logo-img">
             </div>
             <div>
                 <p class="eyebrow">Ubuntu Guide &amp; Cheat Sheet</p>
@@ -40,26 +40,32 @@
             <a href="#resources">Ressources</a>
         </nav>
         <div class="top-actions">
-            <div class="theme-switcher" aria-label="Choix du th&#232;me">
-                <label for="theme-picker">Th&#232;me</label>
-                <select id="theme-picker" class="theme-select-native" aria-hidden="true" tabindex="-1">
-                    <option value="ubuntu">Ubuntu</option>
-                    <option value="dark">Sombre</option>
-                    <option value="accent">Accent</option>
-                </select>
-                <button class="theme-trigger" id="theme-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="theme-trigger-label">Ubuntu</span>
-                </button>
-                <div class="theme-menu" id="theme-menu" role="listbox" aria-labelledby="theme-trigger">
-                    <button class="theme-option" role="option" data-theme="ubuntu" aria-selected="true">Ubuntu</button>
-                    <button class="theme-option" role="option" data-theme="dark" aria-selected="false">Sombre</button>
-                    <button class="theme-option" role="option" data-theme="accent" aria-selected="false">Accent</button>
-                </div>
-            </div>
             <button id="export-pdf" class="ghost">Exporter en PDF</button>
             <button id="toc-toggle" class="ghost mobile-only" aria-expanded="false">Plan</button>
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
         </div>
     </header>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <div class="site-logo small">
+                    <img src="ubuntu-logo.jpg" alt="Logo Ubuntu" class="site-logo-img">
+                </div>
+                <button class="burger close" id="burger-close" aria-label="Fermer le menu">&times;</button>
+            </div>
+            <nav class="mobile-nav" aria-label="Navigation mobile">
+                <a href="#intro">Intro</a>
+                <a href="#basic">Basique</a>
+                <a href="#advanced">Avanc&#233;</a>
+                <a href="#advantages">Avantages</a>
+                <a href="#actions">&#192; faire</a>
+                <a href="#exercises">Exercices</a>
+                <a href="#resources">Ressources</a>
+            </nav>
+            <button class="export-mobile" id="export-pdf-mobile">Exporter en PDF</button>
+        </div>
+    </div>
 
     <div class="shell">
         <section class="hero" id="intro">
@@ -265,6 +271,24 @@
         </main>
         </div>
         <footer class="footer">Pr&#233;par&#233; par Joey Valcin</footer>
+        <div class="footer-theme">
+            <div class="theme-switcher" aria-label="Choix du th&#232;me">
+                <label for="theme-picker">Th&#232;me</label>
+                <select id="theme-picker" class="theme-select-native" aria-hidden="true" tabindex="-1">
+                    <option value="ubuntu">Ubuntu</option>
+                    <option value="dark">Sombre</option>
+                    <option value="accent">Accent</option>
+                </select>
+                <button class="theme-trigger" id="theme-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="theme-trigger-label">Ubuntu</span>
+                </button>
+                <div class="theme-menu" id="theme-menu" role="listbox" aria-labelledby="theme-trigger">
+                    <button class="theme-option" role="option" data-theme="ubuntu" aria-selected="true">Ubuntu</button>
+                    <button class="theme-option" role="option" data-theme="dark" aria-selected="false">Sombre</button>
+                    <button class="theme-option" role="option" data-theme="accent" aria-selected="false">Accent</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -379,6 +403,8 @@
         // Export PDF
         const pdfBtn = document.getElementById('export-pdf');
         pdfBtn?.addEventListener('click', () => window.print());
+        const pdfBtnMobile = document.getElementById('export-pdf-mobile');
+        pdfBtnMobile?.addEventListener('click', () => window.print());
 
         // Toggle plan sur mobile
         const tocToggle = document.getElementById('toc-toggle');
@@ -449,6 +475,30 @@
         const savedTheme = localStorage.getItem(THEME_KEY) || 'ubuntu';
         const initial = themeOptions.find(opt => opt.dataset.theme === savedTheme) || themeOptions[0];
         if (initial) setThemeFromOption(initial);
+
+        // Menu mobile
+        const burger = document.getElementById('burger');
+        const burgerClose = document.getElementById('burger-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = Array.from(document.querySelectorAll('.mobile-nav a'));
+
+        const openMobileMenu = () => {
+            mobileMenu?.classList.add('open');
+            mobileMenu?.setAttribute('aria-hidden', 'false');
+            burger?.setAttribute('aria-expanded', 'true');
+        };
+        const closeMobileMenu = () => {
+            mobileMenu?.classList.remove('open');
+            mobileMenu?.setAttribute('aria-hidden', 'true');
+            burger?.setAttribute('aria-expanded', 'false');
+        };
+
+        burger?.addEventListener('click', openMobileMenu);
+        burgerClose?.addEventListener('click', closeMobileMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
     </script>
 </body>
 </html>
