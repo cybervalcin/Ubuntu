@@ -131,7 +131,7 @@ section {
 .shell {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 1rem 0.9rem 2.2rem;
+    padding: 0.9rem 0.85rem 2.1rem;
 }
 
 .topbar {
@@ -142,7 +142,7 @@ section {
     grid-template-columns: auto 1fr auto;
     gap: 1rem;
     align-items: center;
-    padding: 0.8rem 0.9rem;
+    padding: 0.75rem 0.85rem;
     background: var(--surface);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
@@ -282,8 +282,8 @@ button.ghost:hover {
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.35rem 0.55rem;
-    border-radius: var(--radius);
+    padding: 0.45rem 0.65rem;
+    border-radius: 999px;
     background: var(--chip-bg);
     border: 1px solid var(--line);
     box-shadow: var(--shadow-soft);
@@ -297,8 +297,8 @@ button.ghost:hover {
 
 .theme-switcher select {
     border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
     background: var(--surface);
     color: var(--text);
     font-family: inherit;
@@ -306,6 +306,14 @@ button.ghost:hover {
     cursor: pointer;
     outline: none;
     min-height: 38px;
+    box-shadow: var(--shadow-soft);
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6)), url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.5 1.5l4.5 4 4.5-4' stroke='%231c1426' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 0.85rem center, right 0.85rem center;
+    background-size: 12px 8px;
 }
 
 .theme-switcher select:hover {
@@ -416,6 +424,7 @@ main {
     border: 1px solid var(--line);
     box-shadow: var(--shadow-soft);
     margin-bottom: 1.2rem;
+    overflow: hidden;
 }
 
 .section-head {
@@ -431,7 +440,7 @@ main {
 .command-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 0.9rem;
+    gap: 1rem;
 }
 
 .command-list {
@@ -442,8 +451,8 @@ main {
 
 .command-row {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 0.65rem;
+    grid-template-columns: minmax(240px, 1.1fr) minmax(260px, 1fr);
+    gap: 0.75rem;
     align-items: start;
 }
 
@@ -454,27 +463,27 @@ main {
 }
 
 .command-snippet {
-    display: flex;
-    align-items: stretch;
-    gap: 0.45rem;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .command-snippet pre {
-    flex: 1;
-    margin: 0;
     width: 100%;
+    margin: 0;
 }
 
 .copy-line {
     border-radius: 12px;
-    padding: 0.45rem 0.85rem;
+    padding: 0.5rem 1rem;
     border: 1px solid var(--line);
     background: var(--chip-bg);
     font-weight: 600;
     cursor: pointer;
     color: var(--text);
     transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border 0.12s ease;
+    box-shadow: var(--shadow-soft);
 }
 
 .copy-line:hover {
@@ -495,6 +504,7 @@ main {
     border: 1px solid var(--line);
     box-shadow: var(--shadow-soft);
     transition: transform 0.12s ease, box-shadow 0.12s ease;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -527,7 +537,7 @@ pre {
     background: var(--code-bg);
     border: 1px solid var(--code-border);
     border-radius: 12px;
-    padding: 0.9rem;
+    padding: 0.85rem 1rem;
     overflow-x: auto;
     margin: 0;
 }
@@ -648,7 +658,7 @@ code {
     }
 
     .command-snippet {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         align-items: flex-start;
     }
 
