@@ -40,11 +40,19 @@
         <div class="top-actions">
             <div class="theme-switcher" aria-label="Choix du th&#232;me">
                 <label for="theme-picker">Th&#232;me</label>
-                <select id="theme-picker">
+                <select id="theme-picker" class="theme-select-native" aria-hidden="true" tabindex="-1">
                     <option value="ubuntu">Ubuntu</option>
                     <option value="dark">Sombre</option>
                     <option value="accent">Accent</option>
                 </select>
+                <button class="theme-trigger" id="theme-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="theme-trigger-label">Ubuntu</span>
+                </button>
+                <div class="theme-menu" id="theme-menu" role="listbox" aria-labelledby="theme-trigger">
+                    <button class="theme-option" role="option" data-theme="ubuntu" aria-selected="true">Ubuntu</button>
+                    <button class="theme-option" role="option" data-theme="dark" aria-selected="false">Sombre</button>
+                    <button class="theme-option" role="option" data-theme="accent" aria-selected="false">Accent</button>
+                </div>
             </div>
             <button id="export-pdf" class="ghost">Exporter en PDF</button>
             <button id="toc-toggle" class="ghost mobile-only" aria-expanded="false">Plan</button>
@@ -378,26 +386,67 @@
             tocToggle.setAttribute('aria-expanded', isOpen.toString());
         });
 
-        // Themes
-        const themePicker = document.getElementById('theme-picker');
+        // Themes (custom dropdown)
         const body = document.body;
         const THEME_KEY = 'ubuntu-guide-theme';
+        const themePicker = document.getElementById('theme-picker');
+        const themeTrigger = document.getElementById('theme-trigger');
+        const themeMenu = document.getElementById('theme-menu');
+        const themeOptions = Array.from(document.querySelectorAll('.theme-option'));
+        const triggerLabel = document.querySelector('.theme-trigger-label');
+        const switcher = document.querySelector('.theme-switcher');
 
         const applyTheme = (theme) => {
             const themes = ['theme-ubuntu', 'theme-dark', 'theme-accent'];
             themes.forEach(t => body.classList.remove(t));
             body.classList.add(`theme-${theme}`);
             localStorage.setItem(THEME_KEY, theme);
+            if (themePicker) themePicker.value = theme;
         };
 
-        const savedTheme = localStorage.getItem(THEME_KEY) || 'ubuntu';
-        applyTheme(savedTheme);
-        if (themePicker) {
-            themePicker.value = savedTheme;
-            themePicker.addEventListener('change', (e) => {
-                applyTheme(e.target.value);
+        const setThemeFromOption = (option) => {
+            themeOptions.forEach(opt => opt.setAttribute('aria-selected', 'false'));
+            option.setAttribute('aria-selected', 'true');
+            const value = option.dataset.theme;
+            if (triggerLabel) triggerLabel.textContent = option.textContent;
+            applyTheme(value);
+        };
+
+        const openMenu = () => {
+            switcher?.classList.add('open');
+            themeTrigger?.setAttribute('aria-expanded', 'true');
+        };
+        const closeMenu = () => {
+            switcher?.classList.remove('open');
+            themeTrigger?.setAttribute('aria-expanded', 'false');
+        };
+
+        themeTrigger?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = switcher?.classList.contains('open');
+            isOpen ? closeMenu() : openMenu();
+        });
+
+        themeOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setThemeFromOption(opt);
+                closeMenu();
             });
-        }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!switcher?.contains(e.target)) {
+                closeMenu();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        const savedTheme = localStorage.getItem(THEME_KEY) || 'ubuntu';
+        const initial = themeOptions.find(opt => opt.dataset.theme === savedTheme) || themeOptions[0];
+        if (initial) setThemeFromOption(initial);
     </script>
 </body>
 </html>
