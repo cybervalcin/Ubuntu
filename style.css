@@ -1,0 +1,392 @@
+:root {
+  --ubuntu-purple: #2c001e;
+  --ubuntu-purple-dark: #200016;
+  --ubuntu-orange: #e95420;
+  --ubuntu-orange-soft: #f2713b;
+  --ubuntu-bg: #f3f3f3;
+  --ubuntu-card-bg: #ffffff;
+  --ubuntu-text-main: #111111;
+  --ubuntu-text-muted: #555555;
+  --border-radius-lg: 14px;
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Ubuntu", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top left, #77216f 0, #2c001e 40%, #111 100%);
+  color: var(--ubuntu-text-main);
+}
+
+header {
+  background: linear-gradient(135deg, #77216f, #2c001e);
+  color: #fff;
+  padding: 1.5rem 1.25rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+header .title {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+header h1 span.logo-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 25% 25%, #fff 0, #f7b683 40%, #e95420 100%);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+}
+
+header p {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+button.primary,
+button.secondary {
+  border-radius: 999px;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+button.primary {
+  background: linear-gradient(135deg, #e95420, #f2713b);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+button.primary:hover,
+button.secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.45);
+}
+
+main {
+  max-width: 1120px;
+  margin: 1.2rem auto 2rem;
+  padding: 0 1.25rem 2rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(0, 0.9fr);
+  gap: 1rem;
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.panel {
+  background: var(--ubuntu-bg);
+  border-radius: 22px;
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+nav {
+  position: sticky;
+  top: 90px;
+  font-size: 0.9rem;
+}
+
+nav h2 {
+  font-size: 1rem;
+  margin: 0 0 0.6rem;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin-bottom: 0.25rem;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  width: 100%;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  color: #f7f7f7;
+  opacity: 0.9;
+  transition: background 0.15s ease, padding 0.15s ease, opacity 0.15s ease;
+}
+
+nav a span.bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f7b683;
+}
+
+nav a:hover {
+  background: rgba(0, 0, 0, 0.35);
+  padding-left: 0.8rem;
+  opacity: 1;
+}
+
+section {
+  margin-bottom: 1.5rem;
+  background: var(--ubuntu-card-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem 1.2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+section h2::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #e95420, #f2713b);
+}
+
+section h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0.15rem 0 0.4rem;
+  color: var(--ubuntu-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+ul {
+  margin-top: 0.2rem;
+  padding-left: 1.2rem;
+  color: var(--ubuntu-text-muted);
+  font-size: 0.95rem;
+}
+
+li {
+  margin-bottom: 0.2rem;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: var(--ubuntu-text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: rgba(233, 84, 32, 0.12);
+  color: #c73f12;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.pill span.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e95420;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+}
+
+.card {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 0.7rem 0.7rem 0.6rem;
+  border: 1px solid #e5e5e5;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: 0.98rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(47, 53, 66, 0.08);
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.badge strong {
+  font-weight: 600;
+}
+
+.code-block {
+  position: relative;
+  margin-top: 0.4rem;
+}
+
+.code-block button.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border-radius: 999px;
+  border: none;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  background: #f1f1f1;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.code-block button.copy-btn:hover {
+  background: #e4e4e4;
+}
+
+pre {
+  margin: 0;
+  padding: 0.6rem 0.5rem;
+  border-radius: 8px;
+  background: #111;
+  color: #f5f5f5;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  white-space: pre;
+}
+
+.highlight {
+  color: #f7b683;
+}
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.muted {
+  color: var(--ubuntu-text-muted);
+  font-size: 0.9rem;
+}
+
+footer {
+  max-width: 1120px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.25rem;
+  font-size: 0.8rem;
+  color: #e7e7e7;
+  opacity: 0.8;
+  text-align: right;
+}
+
+a.inline-link {
+  color: #ffd089;
+}
+
+/* Impression / PDF */
+@media print {
+  header,
+  nav,
+  .header-actions,
+  .copy-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  main {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  section {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  footer {
+    display: none;
+  }
+}
