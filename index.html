@@ -25,7 +25,7 @@
             <div class="site-logo">
                 <img src="ubuntu-logo.jpg" alt="Logo Ubuntu" class="site-logo-img">
             </div>
-            <div>
+            <div class="brand-text">
                 <p class="eyebrow">Ubuntu Guide &amp; Cheat Sheet</p>
                 <h1>Guide et aide-m&#233;moire Ubuntu</h1>
             </div>
@@ -40,6 +40,22 @@
             <a href="#resources">Ressources</a>
         </nav>
         <div class="top-actions">
+            <div class="theme-switcher" aria-label="Choix du th&#232;me">
+                <label for="theme-picker">Th&#232;me</label>
+                <select id="theme-picker" class="theme-select-native" aria-hidden="true" tabindex="-1">
+                    <option value="ubuntu">Ubuntu</option>
+                    <option value="dark">Sombre</option>
+                    <option value="accent">Accent</option>
+                </select>
+                <button class="theme-trigger" id="theme-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="theme-trigger-label">Ubuntu</span>
+                </button>
+                <div class="theme-menu" id="theme-menu" role="listbox" aria-labelledby="theme-trigger">
+                    <button class="theme-option" role="option" data-theme="ubuntu" aria-selected="true">Ubuntu</button>
+                    <button class="theme-option" role="option" data-theme="dark" aria-selected="false">Sombre</button>
+                    <button class="theme-option" role="option" data-theme="accent" aria-selected="false">Accent</button>
+                </div>
+            </div>
             <button id="export-pdf" class="ghost">Exporter en PDF</button>
             <button id="toc-toggle" class="ghost mobile-only" aria-expanded="false">Plan</button>
             <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
@@ -270,25 +286,7 @@
             </section>
         </main>
         </div>
-        <footer class="footer">Pr&#233;par&#233; par Joey Valcin</footer>
-        <div class="footer-theme">
-            <div class="theme-switcher" aria-label="Choix du th&#232;me">
-                <label for="theme-picker">Th&#232;me</label>
-                <select id="theme-picker" class="theme-select-native" aria-hidden="true" tabindex="-1">
-                    <option value="ubuntu">Ubuntu</option>
-                    <option value="dark">Sombre</option>
-                    <option value="accent">Accent</option>
-                </select>
-                <button class="theme-trigger" id="theme-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="theme-trigger-label">Ubuntu</span>
-                </button>
-                <div class="theme-menu" id="theme-menu" role="listbox" aria-labelledby="theme-trigger">
-                    <button class="theme-option" role="option" data-theme="ubuntu" aria-selected="true">Ubuntu</button>
-                    <button class="theme-option" role="option" data-theme="dark" aria-selected="false">Sombre</button>
-                    <button class="theme-option" role="option" data-theme="accent" aria-selected="false">Accent</button>
-                </div>
-            </div>
-        </div>
+        <footer class="footer">Fait par Joey Valcin</footer>
     </div>
 
     <script>
